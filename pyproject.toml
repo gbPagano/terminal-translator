@@ -1,16 +1,22 @@
 [tool.poetry]
-name = "translate"
+name = "terminal-translator"
 version = "0.1.0"
 description = ""
 authors = ["gbPagano <guilhermebpagano@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "terminal-translator", from = "src"}]
+packages = [{include = "src"}]
+
+[tool.poetry.scripts]
+tt = "src.main:app"
 
 [tool.poetry.dependencies]
 python = "^3.10"
 google-cloud-translate = "^3.11.0"
 dynaconf = "^3.1.12"
 toml = "^0.10.2"
+typer = "^0.7.0"
+rich = "^13.3.2"
+pyperclip = "^1.8.2"
 
 
 [build-system]
