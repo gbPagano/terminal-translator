@@ -5,8 +5,12 @@ from typing import List
 import pyperclip
 from rich.console import Console
 
-GOOGLE_APLICATION_CREDENTIALS = settings.google_aplication_credentials
-PROJECT_ID = settings.project_id
+try:
+    GOOGLE_APLICATION_CREDENTIALS = settings.google_aplication_credentials
+    PROJECT_ID = settings.project_id
+except AttributeError:
+    raise Exception("Please configure your credentials with the command: `tt-configure`")
+
 
 console = Console()
 app = Typer(add_completion=False)
@@ -24,6 +28,7 @@ def translate_text(
     parent = f"projects/{PROJECT_ID}/locations/{location}"
     if portuguese:
         target_lang = "pt-BR"
+
     
     with console.status("Translating..."):
         response = client.translate_text(
@@ -41,6 +46,3 @@ def translate_text(
         if copy:
             pyperclip.copy(translation.translated_text)
 
-
-if __name__ == "__main__":
-    app()

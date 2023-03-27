@@ -8,6 +8,7 @@ packages = [{include = "src"}]
 
 [tool.poetry.scripts]
 tt = "src.main:app"
+tt-configure = "src.config:app_config"
 
 [tool.poetry.dependencies]
 python = "^3.10"
