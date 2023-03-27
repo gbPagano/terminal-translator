@@ -20,6 +20,22 @@ rich = "^13.3.2"
 pyperclip = "^1.8.2"
 
 
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+isort = "^5.12.0"
+ruff = "^0.0.259"
+pip-audit = "^2.5.3"
+taskipy = "^1.10.4"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.taskipy.tasks]
+lint = { cmd = "ruff src", help = "Performs a static analysis of the source code"}
+format = { cmd = "isort src && black src", help = "Formats the source code of the project, following PEP 8 standards" }
+security = { cmd = "pip-audit", help = "Performs a security analysis of the libraries used" }
+

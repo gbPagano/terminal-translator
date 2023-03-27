@@ -1,35 +1,47 @@
-from google.cloud import translate
-from typer import Typer, Argument, Option
-from .config import settings
 from typing import List
+
 import pyperclip
+from google.cloud import translate
 from rich.console import Console
+from typer import Argument, Option, Typer
+
+from .config import settings
 
 try:
     GOOGLE_APLICATION_CREDENTIALS = settings.google_aplication_credentials
     PROJECT_ID = settings.project_id
 except AttributeError:
-    raise Exception("Please configure your credentials with the command: `tt-configure`")
+    raise Exception(
+        "Please configure your credentials with the command: `tt-configure`"
+    )
 
 
 console = Console()
 app = Typer(add_completion=False)
 
+
 @app.command()
 def translate_text(
-    text: List[str] = Argument(...,help="Text to be translated", show_default=False), 
-    target_lang: str = Option("en-US", "--target", "-t", help="Target language text to be translated"), 
-    source_lang: str = Option("", "--source", "-s", help="Source language of text to be translated"),
-    portuguese: bool = Option(False, "--pt", "-p", help="Text will be translated into portuguese"),
-    copy: bool = Option(False, "--copy", "-c", help="The output will be copied to clipboard"),
-):   
+    text: List[str] = Argument(..., help="Text to be translated", show_default=False),
+    target_lang: str = Option(
+        "en-US", "--target", "-t", help="Target language text to be translated"
+    ),
+    source_lang: str = Option(
+        "", "--source", "-s", help="Source language of text to be translated"
+    ),
+    portuguese: bool = Option(
+        False, "--pt", "-p", help="Text will be translated into portuguese"
+    ),
+    copy: bool = Option(
+        False, "--copy", "-c", help="The output will be copied to clipboard"
+    ),
+):
     client = translate.TranslationServiceClient()
     location = "global"
     parent = f"projects/{PROJECT_ID}/locations/{location}"
     if portuguese:
         target_lang = "pt-BR"
 
-    
     with console.status("Translating..."):
         response = client.translate_text(
             request={
@@ -45,4 +57,3 @@ def translate_text(
         console.print(translation.translated_text)
         if copy:
             pyperclip.copy(translation.translated_text)
-
