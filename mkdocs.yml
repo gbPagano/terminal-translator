@@ -39,7 +39,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          paths: [src]
+          paths: [src/terminal-translator]
 
 extra:
   generator: false

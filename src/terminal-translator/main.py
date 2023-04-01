@@ -46,14 +46,13 @@ def terminal_translator(
         pyperclip.copy(translated_text)
 
 
-
 def translate_text(text: str, target_lang: str = "en-US", source_lang: str = "") -> str:
     """Takes a text as a parameter, and returns the translation
 
     Args:
         text (str): text to be translated
-        source_lang (str, optional): source language of the text. Defaults to "".
-        target_lang (str, optional): target language to translation. Defaults to "en-US".
+        source_lang (str, optional): source language of the text. Defaults to ""
+        target_lang (str, optional): target language to translation. Defaults to "en-US"
 
     Returns:
         str: translated text

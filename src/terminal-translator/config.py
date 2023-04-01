@@ -47,8 +47,8 @@ def set_project_id(credential: str) -> None:
 
 
 def set_google_aplication_credentials(json_path: str) -> None:
-    """Receives the json_path credentials as a parameter,move the file to the configuration 
-    directory and update its path in the configuration file
+    """Receives the json_path credentials as a parameter,move the file to the
+    configuration directory and update its path in the configuration file
 
     Args:
         json_path (str): json_path credentials
