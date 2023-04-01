@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["gbPagano <guilhermebpagano@gmail.com>"]
 readme = "README.md"
-packages = [{include = "src"}]
+packages = [{include = "terminal-translator", from = "src"}]
 
 [tool.poetry.scripts]
 tt = "src.main:app"
