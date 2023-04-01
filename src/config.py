@@ -33,6 +33,11 @@ def configure_credentials(
 
 
 def set_project_id(credential: str) -> None:
+    """Receives the project-id as a parameter and puts it in the configuration file
+
+    Args:
+        credential (str): project-id
+    """
     configs_json = toml.load(config_path)
     configs_json["project_id"] = credential
 
@@ -42,6 +47,12 @@ def set_project_id(credential: str) -> None:
 
 
 def set_google_aplication_credentials(json_path: str) -> None:
+    """Receives the json_path credentials as a parameter,move the file to the configuration 
+    directory and update its path in the configuration file
+
+    Args:
+        json_path (str): json_path credentials
+    """
     json_path = json_path.replace("~", str(Path().home()))
     json_file = Path(json_path)
     json_file.replace(config_path.parent / json_file.name)

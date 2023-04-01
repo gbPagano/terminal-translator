@@ -1,0 +1,50 @@
+site_name: Terminal Translator
+repo_url: https://github.com/gbpagano/terminal-translator
+repo_name: gbpagano/terminal-translator
+
+theme:
+  name: material
+  logo: assets/images/logo.png
+  favicon: assets/images/logo.png
+  palette:
+    - media: "(prefers-color-scheme)"
+      scheme: dracula
+      primary: deep purple
+      accent: deep purple
+
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+  features:
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+plugins:
+  - macros
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+
+extra:
+  generator: false
+
+
+extra_css:
+  - assets/stylesheets/dracula.css
+
+
