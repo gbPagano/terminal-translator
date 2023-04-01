@@ -1,6 +1,6 @@
 # Getting Started
 
-Terminal Translator is a translation CLI that uses the [Google Cloud API](https://cloud.google.com/translate).
+Terminal Translator is a translation CLI that uses the [Google Cloud API](https://cloud.google.com/translate){target=_blank}.
 
 ## Installation
 
@@ -10,7 +10,7 @@ Installation is very simple, just run the following command in the terminal:
 pip install terminal-translator
 ```
 
-!!! tip "We recommend trying [pipx](https://github.com/pypa/pipx)"
+!!! tip "We recommend trying [pipx](https://github.com/pypa/pipx){target=_blank}"
     pipx is a tool to help you install and run end-user applications written in Python.
 
     ```pipx install terminal-translator```
@@ -22,7 +22,7 @@ pip install terminal-translator
 
 To start using the CLI, first we need to configure the access credentials for the goole API.
 
-Login to the [Google Cloud API](https://cloud.google.com/translate), and click start free.
+Login to the [Google Cloud API](https://cloud.google.com/translate){target=_blank}, and click start free.
 
 ![Step 1](assets/images/config-01.png)
 
