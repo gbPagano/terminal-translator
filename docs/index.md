@@ -20,7 +20,7 @@ pip install tt-terminal-translator
 
 ## Configuration
 
-To start using the CLI, first we need to configure the access credentials for the goole API.
+To start using the CLI, first we need to configure the access credentials for the Google API.
 
 Login to the [Google Cloud API](https://cloud.google.com/translate){target=_blank}, and click start free.
 
@@ -89,4 +89,4 @@ tt-configure <project-id> <google-api-credentials>
 
 Finished! Now you are ready to use the Terminal Translator CLI
 
-See the [tutorial session](/tutorial) to learn about the basic usage
+See the [tutorial session](tutorial) to learn about the basic usage
