@@ -7,6 +7,13 @@ Terminal Translator is a translation CLI that uses the [Google Cloud API](https:
 
 See the [full documentation](https://terminal-translator.readthedocs.io/en/latest/)
 
+## Installation
+
+Installation is very simple, just run the following command in the terminal:
+
+```bash
+pip install tt-terminal-translator
+```
 
 ## Basic Usage
 

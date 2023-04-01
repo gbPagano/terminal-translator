@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "terminal-translator"
+name = "tt-terminal-translator"
 version = "0.1.0"
 description = "Terminal Translator is a translation CLI that uses the Google Cloud API. "
 authors = ["gbPagano <guilhermebpagano@gmail.com>"]

@@ -7,13 +7,13 @@ Terminal Translator is a translation CLI that uses the [Google Cloud API](https:
 Installation is very simple, just run the following command in the terminal:
 
 ```bash
-pip install terminal-translator
+pip install tt-terminal-translator
 ```
 
 !!! tip "We recommend trying [pipx](https://github.com/pypa/pipx){target=_blank}"
     pipx is a tool to help you install and run end-user applications written in Python.
 
-    ```pipx install terminal-translator```
+    ```pipx install tt-terminal-translator```
 
 
 
