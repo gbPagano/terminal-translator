@@ -67,7 +67,7 @@ def translate_text(text: str, target_lang: str = "en-US", source_lang: str = "")
         response = client.translate_text(
             request={
                 "parent": parent,
-                "contents": [" ".join(text)],
+                "contents": [text],
                 "mime_type": "text/plain",
                 "source_language_code": source_lang,
                 "target_language_code": target_lang,
