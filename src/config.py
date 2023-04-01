@@ -6,7 +6,8 @@ from rich.console import Console
 from typer import Argument, Typer
 
 config_path = Path.home() / ".config" / "terminal_translator" / "credentials.toml"
-config_path.parent.mkdir(exist_ok=True)
+config_path.parent.parent.mkdir(exist_ok=True)  # create .config/
+config_path.parent.mkdir(exist_ok=True)  # create terminal_translator/
 config_path.touch()
 
 settings = Dynaconf(
@@ -45,7 +46,7 @@ def set_google_aplication_credentials(json_path: str) -> None:
     json_file = Path(json_path)
     json_file.replace(config_path.parent / json_file.name)
     console.print(
-        f"The credential file has been moved to: {config_path / json_file.name}",
+        f"The credential file has been moved to: {config_path.parent / json_file.name}",
         style="yellow",
     )
 
