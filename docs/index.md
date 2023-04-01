@@ -89,4 +89,4 @@ tt-configure <project-id> <google-api-credentials>
 
 Finished! Now you are ready to use the Terminal Translator CLI
 
-See the [tutorial session](tutorial) to learn about the basic usage
+See the [tutorial session](tutorial.md) to learn about the basic usage
