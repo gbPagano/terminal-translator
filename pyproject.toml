@@ -1,14 +1,24 @@
 [tool.poetry]
 name = "terminal-translator"
 version = "0.1.0"
-description = ""
+description = "Terminal Translator is a translation CLI that uses the Google Cloud API. "
 authors = ["gbPagano <guilhermebpagano@gmail.com>"]
 readme = "README.md"
-packages = [{include = "terminal-translator", from = "src"}]
+packages = [{include = "terminal_translator", from = "src"}]
+classifiers = [  
+    "Environment :: Console",
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3.10",
+]
+
+[tool.poetry.urls]
+"Documentation" = "https://terminal-translator.readthedocs.io/en/latest/"
+"Code" = "https://github.com/gbPagano/terminal-translator"
+
 
 [tool.poetry.scripts]
-tt = "src.main:app"
-tt-configure = "src.config:app_config"
+tt = "terminal_translator.main:app"
+tt-configure = "terminal_translator.config:app_config"
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -47,4 +57,4 @@ profile = "black"
 lint = { cmd = "ruff src", help = "Performs a static analysis of the source code"}
 format = { cmd = "isort src && black src", help = "Formats the source code of the project, following PEP 8 standards" }
 security = { cmd = "pip-audit", help = "Performs a security analysis of the libraries used" }
-
+docs = { cmd = "mkdocs serve", help = "Run the documentation"}
