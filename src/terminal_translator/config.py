@@ -11,7 +11,7 @@ config_path.parent.mkdir(exist_ok=True)  # create terminal_translator/
 config_path.touch()
 
 settings = Dynaconf(
-    envvar_prefix="DYNACONF",
+    envvar_prefix="",
     settings_files=[config_path],
 )
 
@@ -29,7 +29,7 @@ def configure_credentials(
     ),
 ):
     set_project_id(project_id)
-    set_google_aplication_credentials(google_api_credentials)
+    set_google_application_credentials(google_api_credentials)
 
 
 def set_project_id(credential: str) -> None:
@@ -46,7 +46,7 @@ def set_project_id(credential: str) -> None:
     console.print("The project id has been set", style="green")
 
 
-def set_google_aplication_credentials(json_path: str) -> None:
+def set_google_application_credentials(json_path: str) -> None:
     """Receives the json_path credentials as a parameter,move the file to the
     configuration directory and update its path in the configuration file
 
@@ -62,7 +62,7 @@ def set_google_aplication_credentials(json_path: str) -> None:
     )
 
     configs_json = toml.load(config_path)
-    configs_json["google_aplication_credentials"] = str(
+    configs_json["google_application_credentials"] = str(
         config_path.parent / json_file.name
     )
 

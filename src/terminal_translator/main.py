@@ -1,3 +1,4 @@
+import os
 from typing import List
 
 import pyperclip
@@ -8,7 +9,9 @@ from typer import Argument, Option, Typer
 from .config import settings
 
 try:
-    GOOGLE_APLICATION_CREDENTIALS = settings.google_aplication_credentials
+    os.environ[
+        "GOOGLE_APPLICATION_CREDENTIALS"
+    ] = settings.google_application_credentials
     PROJECT_ID = settings.project_id
 except AttributeError:
     raise Exception(
