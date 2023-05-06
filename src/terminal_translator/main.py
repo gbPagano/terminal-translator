@@ -7,6 +7,7 @@ from rich.console import Console
 from typer import Argument, Option, Typer
 
 from .config import settings
+from .version import get_version
 
 try:
     os.environ[
@@ -27,16 +28,24 @@ app = Typer(add_completion=False)
 def terminal_translator(
     text: List[str] = Argument(..., help="Text to be translated", show_default=False),
     target_lang: str = Option(
-        "en-US", "--target", "-t", help="Target language text to be translated"
+        "en-US", "--target", "-t", help="Target language text to be translated."
     ),
     source_lang: str = Option(
-        "", "--source", "-s", help="Source language of text to be translated"
+        "", "--source", "-s", help="Source language of text to be translated."
     ),
     portuguese: bool = Option(
-        False, "--pt", "-p", help="Text will be translated into portuguese"
+        False, "--pt", "-p", help="Text will be translated into portuguese."
     ),
     copy: bool = Option(
-        False, "--copy", "-c", help="The output will be copied to clipboard"
+        False, "--copy", "-c", help="The output will be copied to clipboard."
+    ),
+    _version: bool = Option(
+        None,
+        "--version",
+        "-V",
+        callback=get_version,
+        is_eager=True,
+        help="Display the current version.",
     ),
 ):
     if portuguese:

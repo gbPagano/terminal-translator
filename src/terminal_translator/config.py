@@ -3,7 +3,9 @@ from pathlib import Path
 import toml
 from dynaconf import Dynaconf
 from rich.console import Console
-from typer import Argument, Typer
+from typer import Argument, Option, Typer
+
+from .version import get_version
 
 config_path = Path.home() / ".config" / "terminal_translator" / "credentials.toml"
 config_path.parent.parent.mkdir(exist_ok=True)  # create .config/
@@ -26,6 +28,14 @@ def configure_credentials(
     ),
     google_api_credentials: str = Argument(
         ..., help="Path of the json API service key", show_default=False
+    ),
+    _version: bool = Option(
+        None,
+        "--version",
+        "-V",
+        callback=get_version,
+        is_eager=True,
+        help="Display the current version.",
     ),
 ):
     set_project_id(project_id)
