@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tt-terminal-translator"
-version = "0.1.3"
+version = "0.1.4"
 description = "Terminal Translator is a translation CLI that uses the Google Cloud API. "
 authors = ["gbPagano <guilhermebpagano@gmail.com>"]
 readme = "README.md"
@@ -28,6 +28,8 @@ toml = "^0.10.2"
 typer = "^0.7.0"
 rich = "^13.3.2"
 pyperclip = "^1.8.2"
+requests = "^2.31.0"
+pymdown-extensions = "^10.0.1"
 
 
 [tool.poetry.group.dev.dependencies]
