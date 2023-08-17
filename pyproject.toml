@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tt-terminal-translator"
-version = "0.1.5"
+version = "0.1.6"
 description = "Terminal Translator is a translation CLI that uses the Google Cloud API. "
 authors = ["gbPagano <guilhermebpagano@gmail.com>"]
 readme = "README.md"
