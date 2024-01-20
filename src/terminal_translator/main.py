@@ -1,10 +1,10 @@
 import os
-from typing import List
+import sys
 
 import pyperclip
 from google.cloud import translate
 from rich.console import Console
-from typer import Argument, Option, Typer
+from typer import Abort, Argument, Option, Typer
 
 from .config import settings
 from .version import get_version
@@ -26,7 +26,7 @@ app = Typer(add_completion=False)
 
 @app.command()
 def terminal_translator(
-    text: List[str] = Argument(..., help="Text to be translated", show_default=False),
+    text: list[str] = Argument(None, help="Text to be translated", show_default=False),
     target_lang: str = Option(
         "en-US", "--target", "-t", help="Target language text to be translated."
     ),
@@ -50,6 +50,12 @@ def terminal_translator(
 ):
     if portuguese:
         target_lang = "pt-BR"
+
+    if not text and sys.stdin.isatty():
+        console.print("No text provided")
+        raise Abort()
+    elif not text:
+        text = sys.stdin.read().split()
 
     translated_text = translate_text(" ".join(text), target_lang, source_lang)
 

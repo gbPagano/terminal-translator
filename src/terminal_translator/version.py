@@ -1,7 +1,6 @@
 import importlib.metadata
 
 from rich.console import Console
-from typer import Exit
 
 console = Console()
 
@@ -11,4 +10,4 @@ def get_version(value: bool):
     if value:
         version = importlib.metadata.version("tt-terminal-translator")
         console.print(f"tt-terminal-translator {version}")
-        raise Exit()
+        exit(0)
